@@ -12,5 +12,6 @@
 *در مقابل هر ok! که در کنسول است کد ارسال میشود*
 ---
 > *توجه کنید که دیتا در دیتا بیس به صورت رشته است*
+> *the file addres:/nasiba/main/bin/ticket.py*
 ---
 > made by @sadraganjali
