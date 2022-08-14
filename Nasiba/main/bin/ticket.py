@@ -26,6 +26,7 @@ under = under_json["results"]
 if under:
     for i in under:
         start = 3111
+        code1 = "please enter a your code!"
         response = requests.get(
             "https://newsepasa.na30ba.ir/v1/credit/merchant/transaction-list/",
             params={'filter_id__gt': start, "filter_terminal__merchant__merchant_id": 1111188822,
@@ -54,15 +55,13 @@ if under:
             json={
                 "mobile": "09022562088",
                 "template": "cinemaTest",
-                "params": {"param1": "code1"},
+                "params": {"param1": code1},
             },
         )
 
-        code1 = "code"
-
         response3json = response3.json()
-        campaign_id = response3json["campaign_id"]
+        campaign_id1 = response3json["campaign_id"]
         start = start + 1
         Trakoneshs.objects.create(
-            id1=start, code=code1, trx_id=trx_id1, cellphone=cellphone1)
+            id1=start, code=code1, trx_id=trx_id1, cellphone=cellphone1, campaign_id=campaign_id1)
         print("ok!")
