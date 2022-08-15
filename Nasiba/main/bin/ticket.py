@@ -13,12 +13,11 @@ django.setup()
 from main.models import Trakoneshs
 
 start = 3111
-i = 0
 
 under_test = requests.get(
     "https://newsepasa.na30ba.ir/v1/credit/merchant/transaction-list/",
     params={'filter_id__gt': start, "filter_terminal__merchant__merchant_id": 1111188822,
-            "page_size": 10, "order_by": "id"},
+            "page_size": 10, "order_by": "-id"},
     headers={
         "Authorization": "Token client:xkMWWuLlnXdwusEJbjSk06kWSmHZ6fawp8nT7lmDSbsvs/07W8VuW9EToZtx1YxaSw1Ko2jttyTI5cVD"},
 )
@@ -75,7 +74,6 @@ if True:
             response3json = response3.json()
             campaign_id1 = response3json["campaign_id"]
             start = start + 1
-            i = i + 1
             Trakoneshs.objects.create(id1=start, code=code1, trx_id=trx_id1,cellphone=cellphone1, campaign_id=campaign_id1)
             print("ok!")
         else:
