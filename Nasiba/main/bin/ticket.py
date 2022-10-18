@@ -12,7 +12,8 @@ django.setup()
 
 from main.models import Trakoneshs
 
-start = 3111
+def send(start=0, code="enter your code"):
+    start = start
 
 under_test = requests.get(
     "https://newsepasa.na30ba.ir/v1/credit/merchant/transaction-list/",
@@ -38,7 +39,7 @@ if True:
         under = under_json["results"]
 
         if under:
-            code1 = "enter your code"
+            code1 = code
             response = requests.get(
                 "https://newsepasa.na30ba.ir/v1/credit/merchant/transaction-list/",
                 params={'filter_id__gt': start, "filter_terminal__merchant__merchant_id": 1111188822,
